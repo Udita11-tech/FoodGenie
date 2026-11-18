@@ -3,7 +3,7 @@
    Backend: FastAPI at 127.0.0.1:8000
 ===================================================== */
 
-const API = "http://127.0.0.1:8000";
+const API = " https://foodgenie-xo2j.onrender.com";
 
 let cart = [];
 let groceryCart = [];
