@@ -1,0 +1,849 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#090b24">
+
+    <title>FoodGenie | One Wish Away</title>
+
+    <meta
+        name="description"
+        content="Discover restaurants, explore recipes and find your next favourite meal with FoodGenie."
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+        <a href="#" class="logo" onclick="showHome()">
+            <span class="logo-icon">🧞</span>
+            <span>Food<span class="logo-highlight">Genie</span></span>
+        </a>
+
+        <nav class="nav-links">
+    <a href="#home" onclick="showHome()">Home</a>
+    <a href="#categories">Explore</a>
+    <a href="#restaurants">Restaurants</a>
+    <a href="#booking">Book a Table</a>
+    <a href="#myBookings" onclick="showBookings()">My Bookings</a>
+    <a href="#recipes" onclick="showRecipes()">Recipes</a>
+</nav>
+
+        <div class="nav-actions">
+            <!-- Food Cart -->
+            <button class="nav-icon-btn" onclick="openCart()" aria-label="Open Food Cart" title="Food Cart">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+
+            <!-- Separate Grocery Cart -->
+            <button class="nav-icon-btn grocery-nav-btn" onclick="openGroceryCart()" aria-label="Open Grocery Cart" title="Grocery Cart">
+                <i class="fa-solid fa-basket-shopping"></i>
+            </button>
+
+            <button class="login-btn" onclick="openAuth()">
+                Sign In
+            </button>
+
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+
+    <!-- ================= MOBILE NAVIGATION ================= -->
+
+    <div class="mobile-menu hidden" id="mobileMenu">
+    <a href="#home" onclick="showHome()">Home</a>
+    <a href="#categories">Explore</a>
+    <a href="#restaurants">Restaurants</a>
+    <a href="#booking">Book a Table</a>
+    <button onclick="showBookings()">📋 My Bookings</button>
+    <a href="#recipes" onclick="showRecipes()">Recipes</a>
+
+    <button onclick="openCart()">🍔 Food Cart</button>
+    <button onclick="openGroceryCart()">🥬 Grocery Cart</button>
+    <button onclick="openAuth()">Sign In</button>
+</div>
+
+    <!-- ================= HOME PAGE ================= -->
+
+    <main id="homePage">
+
+        <!-- HERO SECTION -->
+
+        <section class="hero" id="home">
+
+            <div class="hero-content">
+
+                <div class="hero-badge">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    YOUR PERSONAL FOOD COMPANION
+                </div>
+
+                <h1>
+                    One Wish Away
+                    <span>From Your Perfect Meal.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Craving something delicious?
+                    Let your FoodGenie discover the perfect meal
+                    for your mood, taste and budget.
+                </p>
+
+                <div class="search-container">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        id="query"
+                        placeholder="Search pizza, biryani, desserts..."
+                        autocomplete="off"
+                    >
+
+                    <button onclick="searchFood()">
+                        Discover <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </div>
+
+                <div class="hero-quick-links">
+                    <span>Popular searches:</span>
+                    <button onclick="quickSearch('Pizza')">Pizza</button>
+                    <button onclick="quickSearch('Biryani')">Biryani</button>
+                    <button onclick="quickSearch('Burger')">Burger</button>
+                    <button onclick="quickSearch('Desserts')">Desserts</button>
+                </div>
+
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-image-placeholder">
+                    <div class="hero-food-icon">🍕</div>
+                    <span>Delicious discoveries await!</span>
+                </div>
+
+                <div class="floating-card floating-card-one">
+                    <i class="fa-solid fa-star"></i>
+                    <span>Discover top-rated food</span>
+                </div>
+
+                <div class="floating-card floating-card-two">
+                    <i class="fa-solid fa-heart"></i>
+                    <span>Made for your cravings</span>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- CATEGORY SECTION -->
+
+        <section class="categories-section" id="categories">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">EXPLORE YOUR CRAVINGS</span>
+                    <h2>What are you craving today?</h2>
+                </div>
+            </div>
+
+            <div class="category-grid">
+
+                <button class="category-card" onclick="quickSearch('Pizza')">
+                    <span class="category-icon">🍕</span>
+                    <span>Pizza</span>
+                </button>
+
+                <button class="category-card" onclick="quickSearch('Burger')">
+                    <span class="category-icon">🍔</span>
+                    <span>Burgers</span>
+                </button>
+
+                <button class="category-card" onclick="quickSearch('Biryani')">
+                    <span class="category-icon">🍛</span>
+                    <span>Biryani</span>
+                </button>
+
+                <button class="category-card" onclick="quickSearch('Chinese')">
+                    <span class="category-icon">🥡</span>
+                    <span>Chinese</span>
+                </button>
+
+                <button class="category-card" onclick="quickSearch('Desserts')">
+                    <span class="category-icon">🍰</span>
+                    <span>Desserts</span>
+                </button>
+
+                <button class="category-card" onclick="quickSearch('Healthy')">
+                    <span class="category-icon">🥗</span>
+                    <span>Healthy</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- PERSONALIZED FOOD DISCOVERY -->
+
+        <section class="discovery-section">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">FOOD THAT MATCHES YOU</span>
+                    <h2>Find food your way</h2>
+                    <p>Tell us what you feel like eating.</p>
+                </div>
+            </div>
+
+            <div class="preference-grid">
+
+                <button class="preference-card" onclick="quickSearch('Vegetarian food')">
+                    <span>🥦</span>
+                    <h3>Vegetarian</h3>
+                    <p>Fresh and delicious choices</p>
+                </button>
+
+                <button class="preference-card" onclick="quickSearch('Non vegetarian food')">
+                    <span>🍗</span>
+                    <h3>Non-Vegetarian</h3>
+                    <p>For your protein cravings</p>
+                </button>
+
+                <button class="preference-card" onclick="quickSearch('Healthy food')">
+                    <span>🥗</span>
+                    <h3>Healthy</h3>
+                    <p>Feel-good food choices</p>
+                </button>
+
+                <button class="preference-card" onclick="quickSearch('Spicy food')">
+                    <span>🌶️</span>
+                    <h3>Spicy</h3>
+                    <p>Bring on the flavours</p>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESTAURANT SECTION -->
+
+        <section class="restaurants-section" id="restaurants">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">HANDPICKED FOR YOU</span>
+                    <h2>Discover Restaurants</h2>
+                    <p>Explore places serving your favourite food.</p>
+                </div>
+
+                <div class="restaurant-filters">
+
+                    <select id="budgetFilter" aria-label="Filter by budget">
+                        <option value="">Any Budget</option>
+                        <option value="200">Under ₹200</option>
+                        <option value="400">Under ₹400</option>
+                        <option value="600">Under ₹600</option>
+                        <option value="800">Under ₹800</option>
+                    </select>
+
+                    <select id="sortFilter" aria-label="Sort restaurants">
+                        <option value="recommended">Recommended</option>
+                        <option value="rating">Highest Rated</option>
+                        <option value="cost_low">Price: Low to High</option>
+                        <option value="cost_high">Price: High to Low</option>
+                    </select>
+
+                </div>
+            </div>
+
+            <div id="searchStatus" class="search-status"></div>
+
+            <div id="results" class="restaurant-grid grid">
+
+                <div class="empty-state">
+                    <span>🍽️</span>
+                    <h3>Your next favourite meal is waiting!</h3>
+                    <p>Search for a dish to discover restaurants.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- MAP SECTION -->
+
+        <section class="map-section" id="nearby">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">EXPLORE LOCATIONS</span>
+                    <h2>Find restaurants around you</h2>
+                    <p>Discover restaurant locations and plan your next visit.</p>
+                </div>
+            </div>
+
+            <div id="restaurantMap" class="map-container">
+                <div class="map-placeholder">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    <h3>Your food map will appear here</h3>
+                    <p>Restaurant location integration will be connected in a later step.</p>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- TABLE BOOKING -->
+
+        <section class="booking-section" id="booking">
+
+            <div class="booking-content">
+                <span class="eyebrow">PLAN YOUR DINING EXPERIENCE</span>
+
+                <h2>Your table is just a few clicks away.</h2>
+
+                <p>
+                    Find your favourite restaurant and reserve a table
+                    for your next special meal.
+                </p>
+
+                <button class="primary-btn" onclick="openBooking()">
+                    Book a Table <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+
+            <div class="booking-visual">
+                <span>🍽️</span>
+            </div>
+
+        </section>
+
+
+        <!-- RECIPES SECTION -->
+
+        <section class="recipes-section" id="recipes">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">COOK SOMETHING AMAZING</span>
+                    <h2>Explore Delicious Recipes</h2>
+                    <p>Discover new dishes and ingredients for your kitchen.</p>
+                </div>
+
+                <button class="text-btn" onclick="showRecipes()">
+                    Explore Recipes <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+
+            <div id="recipesGrid" class="recipe-grid grid">
+
+                <div class="empty-state">
+                    <span>👨‍🍳</span>
+                    <h3>Something delicious is cooking!</h3>
+                    <p>Our recipe collection will appear here.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TESTIMONIALS -->
+
+        <section class="testimonials-section">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">LOVE FROM FOOD LOVERS</span>
+                    <h2>What people say about FoodGenie</h2>
+                </div>
+            </div>
+
+            <div class="testimonial-grid">
+
+                <article class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>
+                        "Finding a place to eat is so much easier.
+                        I love discovering new restaurants!"
+                    </p>
+                    <h4>Food Lover</h4>
+                    <span>FoodGenie Explorer</span>
+                </article>
+
+                <article class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>
+                        "The food discovery experience makes choosing
+                        what to eat so much more fun."
+                    </p>
+                    <h4>Happy Customer</h4>
+                    <span>FoodGenie Explorer</span>
+                </article>
+
+                <article class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>
+                        "A convenient way to explore different cuisines
+                        and discover delicious meals."
+                    </p>
+                    <h4>Food Enthusiast</h4>
+                    <span>FoodGenie Explorer</span>
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= RECIPES PAGE ================= -->
+
+    <main id="recipesPage" class="hidden">
+
+        <section class="page-banner">
+            <span class="eyebrow">FROM OUR KITCHEN TO YOURS</span>
+            <h1>Discover Your Next Favourite Recipe 🍳</h1>
+            <p>Explore dishes, ingredients and new cooking ideas.</p>
+        </section>
+
+        <section class="recipes-section">
+
+            <div class="section-heading">
+                <h2>Our Recipes</h2>
+
+                <button class="secondary-btn" onclick="showHome()">
+                    Back to Home
+                </button>
+            </div>
+
+            <div id="allRecipesGrid" class="recipe-grid grid"></div>
+
+        </section>
+
+    </main>
+
+<!-- ================= MY BOOKINGS PAGE ================= -->
+
+<main id="bookingsPage" class="hidden">
+
+    <section class="page-banner">
+        <span class="eyebrow">YOUR DINING JOURNEY</span>
+        <h1>My Bookings 🍽️</h1>
+        <p>View your restaurant reservations in one place.</p>
+    </section>
+
+    <section class="booking-section">
+
+        <div class="booking-content">
+            <h2>Find Your Reservations</h2>
+
+            <form id="myBookingsForm" onsubmit="loadMyBookings(event)">
+
+                <label for="bookingLookupPhone">
+                    Enter your registered phone number
+                </label>
+
+                <input
+                    type="tel"
+                    id="bookingLookupPhone"
+                    placeholder="Enter phone number"
+                    required
+                >
+
+                <button type="submit" class="primary-btn">
+                    Find My Bookings
+                </button>
+
+            </form>
+        </div>
+
+        <div id="myBookingsResults" class="booking-results">
+            <div class="empty-state">
+                <span>📅</span>
+                <h3>Your bookings will appear here</h3>
+                <p>Enter your phone number to find your reservations.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <button class="secondary-btn" onclick="showHome()">
+        Back to Home
+    </button>
+
+</main>
+
+
+    <!-- ================= RESTAURANT DETAIL MODAL ================= -->
+
+    <div id="restaurantModal" class="modal hidden">
+        <div class="modal-content restaurant-modal-content">
+
+            <button class="modal-close" onclick="closeRestaurantDetails()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div id="restaurantDetails">
+                <!-- Restaurant information will load here -->
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- ================= CART MODAL ================= -->
+
+    <div id="cartModal" class="modal hidden">
+
+        <div class="modal-content cart-modal-content">
+
+            <button class="modal-close" onclick="closeCart()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <span class="eyebrow">YOUR FOOD SELECTION</span>
+            <h2>My Food Cart 🛒</h2>
+
+            <div id="cartItems" class="cart-items">
+                <p>Your cart is empty.</p>
+            </div>
+
+            <div class="cart-summary">
+                <div class="cart-total-row">
+                    <span>Total Amount</span>
+                    <strong>₹<span id="total">0</span></strong>
+                </div>
+
+                <button class="primary-btn full-width" onclick="placeOrder()">
+                    Proceed to Checkout
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= GROCERY CART MODAL ================= -->
+
+    <div id="groceryCartModal" class="modal hidden">
+
+        <div class="modal-content">
+
+            <button class="modal-close" onclick="closeGroceryCart()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h2>My Grocery Cart 🥬</h2>
+
+            <div id="groceryCartItems"></div>
+
+            <h3>Total: ₹<span id="groceryTotal">0</span></h3>
+
+            <button onclick="checkoutGroceries()">
+                Continue
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= CHECKOUT MODAL ================= -->
+
+    <div id="checkoutModal" class="modal hidden">
+
+        <div class="modal-content checkout-content">
+
+            <button class="modal-close" onclick="closeCheckout()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h2>Complete Your Order</h2>
+
+            <form id="checkoutForm" onsubmit="submitCheckout(event)">
+
+                <label for="customerName">Full Name</label>
+                <input id="customerName" name="name" type="text" required>
+
+                <label for="customerPhone">Phone Number</label>
+                <input id="customerPhone" name="phone" type="tel" required>
+
+                <label for="customerCity">City</label>
+                <input id="customerCity" name="city" type="text" required>
+
+                <label for="customerPincode">Pincode</label>
+                <input id="customerPincode" name="pincode" type="text" required>
+
+                <label for="customerAddress">Delivery Address</label>
+                <textarea id="customerAddress" name="address" required></textarea>
+
+                <label for="paymentMethod">Payment Method</label>
+                <select id="paymentMethod" name="payment">
+                    <option value="Cash On Delivery">Cash On Delivery</option>
+                    <option value="Demo Online Payment">Demo Online Payment</option>
+                </select>
+
+                <button class="primary-btn full-width" type="submit">
+                    Confirm Order
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= TABLE BOOKING MODAL ================= -->
+
+    <div id="bookingModal" class="modal hidden">
+
+        <div class="modal-content">
+
+            <button class="modal-close" onclick="closeBooking()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h2>Reserve Your Table 🍽️</h2>
+
+            <form id="bookingForm" onsubmit="submitBooking(event)">
+
+                <label for="bookingRestaurant">Restaurant Name</label>
+                <input id="bookingRestaurant" name="restaurant" type="text" required>
+
+                <label for="bookingName">Your Name</label>
+                <input id="bookingName" name="name" type="text" required>
+
+                <label for="bookingPhone">Phone Number</label>
+                <input id="bookingPhone" name="phone" type="tel" required>
+
+                <label for="bookingDate">Date</label>
+                <input id="bookingDate" name="date" type="date" required>
+
+                <label for="bookingTime">Time</label>
+                <input id="bookingTime" name="time" type="time" required>
+
+                <label for="bookingGuests">Number of Guests</label>
+                <input id="bookingGuests" name="guests" type="number" min="1" max="20" value="2" required>
+
+                <label for="bookingRequests">Special Requests</label>
+                <textarea id="bookingRequests" name="requests"></textarea>
+
+                <button class="primary-btn full-width" type="submit">
+                    Confirm Booking
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= AUTH MODAL ================= -->
+
+    <div id="authModal" class="modal hidden">
+
+        <div class="modal-content auth-content">
+
+            <button class="modal-close" onclick="closeAuth()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="auth-logo">🧞 FoodGenie</div>
+
+            <h2 id="authTitle">Welcome Back!</h2>
+
+            <p id="authDescription">
+                Sign in to continue your food journey.
+            </p>
+
+            <form id="authForm" onsubmit="handleAuth(event)">
+
+                <div id="authNameField" class="hidden">
+                    <label for="authName">Full Name</label>
+                    <input id="authName" type="text">
+                </div>
+
+                <label for="authEmail">Email Address</label>
+                <input id="authEmail" type="email" required>
+
+                <label for="authPassword">Password</label>
+                <input id="authPassword" type="password" required>
+
+                <button type="submit" class="primary-btn full-width">
+                    Continue
+                </button>
+
+            </form>
+
+            <p class="auth-switch">
+                <span id="authSwitchText">Don't have an account?</span>
+                <button onclick="toggleAuthMode()" id="authSwitchButton">
+                    Sign Up
+                </button>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= ORDER HISTORY ================= -->
+
+    <section id="orderHistorySection" class="hidden">
+
+        <div class="section-heading">
+            <h2>My Orders</h2>
+        </div>
+
+        <div id="orderHistory"></div>
+
+    </section>
+
+
+    <!-- ================= FOODGENIE CHATBOT ================= -->
+
+    <div id="chatbotWidget" class="chatbot-widget">
+
+        <div id="chatWindow" class="chat-window hidden">
+
+            <div class="chat-header">
+
+                <div class="chat-avatar">🧞</div>
+
+                <div>
+                    <h3>FoodGenie Assistant</h3>
+                    <span class="chat-status">Your food companion</span>
+                </div>
+
+                <button onclick="toggleChat()" aria-label="Close chatbot">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+            <div id="chatMessages" class="chat-messages">
+
+                <div class="bot-message">
+                    Hey there! 👋 I'm your FoodGenie.
+                    Tell me what you're craving today!
+                </div>
+
+            </div>
+
+            <div class="chat-input-area">
+
+                <input
+    type="text"
+    id="chatInput"
+    placeholder="Ask me what to eat..."
+>
+
+                <button onclick="startVoiceSearch()" aria-label="Voice search">
+                    <i class="fa-solid fa-microphone"></i>
+                </button>
+
+                <button onclick="chatSearch()" aria-label="Send message">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+        <button class="chat-toggle-btn" onclick="toggleChat()">
+            <i class="fa-solid fa-comment-dots"></i>
+            <span>Ask FoodGenie</span>
+        </button>
+
+    </div>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="footer-main">
+
+            <div class="footer-brand">
+                <a href="#home" class="logo">
+                    <span>🧞</span>
+                    Food<span class="logo-highlight">Genie</span>
+                </a>
+
+                <p>
+                    Your cravings, our magic.
+                    Discover food that makes every moment delicious.
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Explore</h3>
+                <a href="#home">Home</a>
+                <a href="#categories">Categories</a>
+                <a href="#restaurants">Restaurants</a>
+                <a href="#recipes" onclick="showRecipes()">Recipes</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Discover</h3>
+                <a href="#nearby">Find Restaurants</a>
+                <a href="#booking">Table Booking</a>
+                <a href="#recipes">Cooking Ideas</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Connect</h3>
+                <a href="#home">About FoodGenie</a>
+                <a href="mailto:hello@foodgenie.example">Contact</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 FoodGenie. Made with ❤️ for food lovers.</p>
+            <p>One Wish Away.</p>
+        </div>
+
+    </footer>
+
+
+    <!-- ================= NOTIFICATION ================= -->
+
+    <div id="notification" class="notification hidden"></div>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>

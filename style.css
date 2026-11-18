@@ -1,0 +1,1640 @@
+
+/* =====================================================
+   FOODGENIE - MODERN DARK UI
+   Theme: Midnight Navy / Purple / Violet
+===================================================== */
+
+:root {
+    --bg: #090b24;
+    --bg-secondary: #101331;
+    --surface: #171a3b;
+    --surface-light: #20234a;
+    --primary: #9b6cff;
+    --primary-light: #bd9aff;
+    --accent: #e0a4ff;
+    --text: #ffffff;
+    --muted: #a5a8c5;
+    --border: rgba(255,255,255,0.09);
+    --gradient: linear-gradient(135deg, #8055ed, #bd75ed);
+    --shadow: 0 15px 45px rgba(0,0,0,0.25);
+    --radius: 18px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+button, input, select, textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    color: inherit;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    min-height: 78px;
+    padding: 15px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    background: rgba(9,11,36,0.9);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(18px);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 25px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.logo-icon {
+    font-size: 30px;
+}
+
+.logo-highlight {
+    color: var(--primary-light);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-links a {
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-light);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.nav-icon-btn {
+    position: relative;
+    width: 43px;
+    height: 43px;
+    border-radius: 13px;
+    background: var(--surface);
+    color: white;
+    font-size: 17px;
+}
+
+.cart-count {
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    background: var(--primary);
+    border-radius: 50%;
+    min-width: 19px;
+    height: 19px;
+    font-size: 11px;
+    display: grid;
+    place-items: center;
+}
+
+.login-btn {
+    background: var(--gradient);
+    padding: 11px 23px;
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: transparent;
+    font-size: 22px;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 78px;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: var(--bg-secondary);
+    z-index: 99;
+    border-bottom: 1px solid var(--border);
+}
+
+.mobile-menu a,
+.mobile-menu button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 13px;
+    background: transparent;
+    color: white;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 590px;
+    padding: 95px 8%;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    gap: 55px;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 15% 20%, rgba(125,75,220,0.20), transparent 50%),
+        radial-gradient(ellipse at 85% 70%, rgba(189,117,237,0.13), transparent 45%);
+}
+
+.hero-content {
+    max-width: 680px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-badge {
+    display: inline-flex;
+    gap: 9px;
+    align-items: center;
+    padding: 9px 16px;
+    border: 1px solid rgba(180,140,255,0.3);
+    background: rgba(155,108,255,0.12);
+    color: var(--primary-light);
+    border-radius: 50px;
+    font-size: 11px;
+    letter-spacing: 1.4px;
+    font-weight: 800;
+    margin-bottom: 27px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(43px, 5.5vw, 75px);
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+}
+
+.hero h1 span {
+    display: block;
+    color: var(--primary-light);
+}
+
+.hero-description {
+    color: var(--muted);
+    max-width: 550px;
+    font-size: 16px;
+    margin: 23px 0 30px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 8px 9px 8px 18px;
+    max-width: 590px;
+    background: #fff;
+    border-radius: 13px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+}
+
+.search-container > i {
+    color: #777;
+}
+
+.search-container input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #222;
+    padding: 11px 0;
+    font-size: 14px;
+}
+
+.search-container button {
+    padding: 14px 21px;
+    background: var(--gradient);
+    border-radius: 9px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.hero-quick-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: 22px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.hero-quick-links button {
+    padding: 6px 12px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    color: #ddd;
+    font-size: 12px;
+}
+
+.hero-quick-links button:hover {
+    background: var(--primary);
+}
+
+.hero-visual {
+    min-height: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-image-placeholder {
+    width: min(100%, 350px);
+    height: 330px;
+    border-radius: 35px;
+    background:
+        radial-gradient(circle at 30% 25%, #7954b8, transparent 45%),
+        linear-gradient(145deg, #28244d, #17172f);
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 30px 80px rgba(105,65,190,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    transform: rotate(2deg);
+}
+
+.hero-food-icon {
+    font-size: 125px;
+    filter: drop-shadow(0 15px 20px rgba(0,0,0,0.3));
+}
+
+.hero-image-placeholder span {
+    color: #e6d8ff;
+    font-size: 14px;
+}
+
+.floating-card {
+    position: absolute;
+    background: rgba(32,35,74,0.95);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    padding: 14px 17px;
+    display: flex;
+    gap: 11px;
+    align-items: center;
+    font-size: 12px;
+    box-shadow: var(--shadow);
+}
+
+.floating-card i {
+    color: #e6b65c;
+}
+
+.floating-card-one {
+    top: 25px;
+    left: -15px;
+}
+
+.floating-card-two {
+    bottom: 30px;
+    right: -10px;
+}
+
+.floating-card-two i {
+    color: #ff7fa8;
+}
+
+/* ================= COMMON SECTIONS ================= */
+
+.categories-section,
+.discovery-section,
+.restaurants-section,
+.map-section,
+.recipes-section,
+.testimonials-section {
+    padding: 75px 8%;
+}
+
+.categories-section,
+.recipes-section {
+    background: var(--bg-secondary);
+}
+
+.section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+.eyebrow {
+    display: block;
+    color: var(--primary-light);
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 800;
+    margin-bottom: 9px;
+}
+
+.section-heading h2,
+.booking-content h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(27px, 3vw, 38px);
+    line-height: 1.3;
+}
+
+.section-heading p,
+.booking-content p {
+    color: var(--muted);
+    margin-top: 9px;
+    font-size: 14px;
+}
+
+/* ================= CATEGORY CARDS ================= */
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 17px;
+}
+
+.category-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 17px;
+    min-height: 145px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.category-icon {
+    font-size: 38px;
+}
+
+.category-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--primary);
+    background: var(--surface-light);
+}
+
+/* ================= PREFERENCES ================= */
+
+.preference-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 17px;
+}
+
+.preference-card {
+    background: linear-gradient(145deg, #1b1e43, #12152f);
+    border: 1px solid var(--border);
+    border-radius: 17px;
+    text-align: left;
+    padding: 24px;
+    transition: 0.3s;
+}
+
+.preference-card > span {
+    font-size: 34px;
+}
+
+.preference-card h3 {
+    margin-top: 15px;
+    font-size: 17px;
+}
+
+.preference-card p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.preference-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-5px);
+}
+
+/* ================= RESTAURANTS ================= */
+
+.restaurant-filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.restaurant-filters select {
+    background: var(--surface);
+    color: white;
+    border: 1px solid var(--border);
+    padding: 11px 13px;
+    border-radius: 9px;
+    outline: none;
+}
+
+.search-status {
+    color: var(--muted);
+    margin-bottom: 18px;
+    font-size: 13px;
+}
+
+.grid,
+.restaurant-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 23px;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(155,108,255,0.6);
+    box-shadow: var(--shadow);
+}
+
+.card img {
+    display: block;
+    width: 100%;
+    height: 205px;
+    object-fit: cover;
+    background: var(--surface-light);
+}
+
+.card h3 {
+    font-size: 18px;
+    margin: 15px 16px 7px;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 13px;
+    margin: 7px 16px;
+}
+
+.card button {
+    background: var(--gradient);
+    padding: 11px 16px;
+    border-radius: 9px;
+    margin: 13px 16px 17px;
+    font-weight: 700;
+}
+
+/* ================= EMPTY STATES ================= */
+
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 55px 20px;
+    background: var(--surface);
+    border: 1px dashed rgba(255,255,255,0.15);
+    border-radius: 17px;
+}
+
+.empty-state > span {
+    font-size: 48px;
+}
+
+.empty-state h3 {
+    margin: 12px 0 6px;
+}
+
+.empty-state p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* ================= MAP ================= */
+
+.map-container {
+    min-height: 300px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--surface);
+}
+
+.map-placeholder {
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.map-placeholder i {
+    font-size: 50px;
+    color: var(--primary-light);
+    margin-bottom: 15px;
+}
+
+.map-placeholder p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* ================= BOOKING ================= */
+
+.booking-section {
+    margin: 30px 8%;
+    padding: 60px;
+    background:
+        radial-gradient(circle at 85% 30%, rgba(205,150,255,0.25), transparent 40%),
+        linear-gradient(125deg, #282052, #171936);
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.booking-content {
+    max-width: 600px;
+}
+
+.booking-content h2 {
+    margin-bottom: 12px;
+}
+
+.booking-visual {
+    font-size: 125px;
+    filter: drop-shadow(0 15px 20px rgba(0,0,0,0.25));
+}
+
+.primary-btn,
+.secondary-btn {
+    padding: 13px 22px;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.primary-btn {
+    background: var(--gradient);
+    color: white;
+}
+
+.primary-btn:hover,
+.login-btn:hover,
+.search-container button:hover {
+    filter: brightness(1.13);
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background: var(--surface-light);
+    border: 1px solid var(--border);
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* ================= RECIPES ================= */
+
+.recipe-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.text-btn {
+    background: transparent;
+    color: var(--primary-light);
+    font-weight: 700;
+}
+
+/* ================= TESTIMONIALS ================= */
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.testimonial-card {
+    padding: 27px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 17px;
+}
+
+.testimonial-stars {
+    color: #ffc76b;
+    letter-spacing: 3px;
+    margin-bottom: 17px;
+}
+
+.testimonial-card p {
+    color: #d5d6e5;
+    font-size: 14px;
+}
+
+.testimonial-card h4 {
+    margin-top: 20px;
+}
+
+.testimonial-card span {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* ================= PAGE BANNER ================= */
+
+.page-banner {
+    padding: 80px 8%;
+    text-align: center;
+    background:
+        radial-gradient(circle at 50% 30%, rgba(155,108,255,0.2), transparent 55%);
+}
+
+.page-banner h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(32px, 4vw, 52px);
+}
+
+.page-banner p {
+    color: var(--muted);
+    margin-top: 12px;
+}
+
+/* ================= MODALS ================= */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0,0,0,0.78);
+    backdrop-filter: blur(8px);
+    overflow-y: auto;
+}
+
+.modal-content {
+    position: relative;
+    width: min(100%, 540px);
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 32px;
+    background: #171936;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+.modal-content h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    margin-bottom: 18px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 17px;
+    right: 17px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.09);
+    font-size: 17px;
+}
+
+.restaurant-modal-content {
+    width: min(100%, 700px);
+}
+
+.cart-items {
+    margin: 20px 0;
+}
+
+.cart-items p {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.cart-summary {
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+}
+
+.cart-total-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 17px;
+}
+
+/* ================= FORMS ================= */
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal-content label {
+    font-size: 13px;
+    color: #d6d5e8;
+    margin-top: 5px;
+}
+
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+    width: 100%;
+    padding: 13px;
+    border-radius: 9px;
+    border: 1px solid var(--border);
+    background: #10132e;
+    color: white;
+    outline: none;
+}
+
+.modal-content input:focus,
+.modal-content textarea:focus,
+.modal-content select:focus {
+    border-color: var(--primary);
+}
+
+.modal-content textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.auth-content {
+    text-align: center;
+}
+
+.auth-logo {
+    font-size: 23px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.auth-content > p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.auth-content form {
+    text-align: left;
+}
+
+.auth-switch {
+    margin-top: 20px;
+}
+
+.auth-switch button {
+    color: var(--primary-light);
+    background: transparent;
+    font-weight: 700;
+}
+
+/* ================= CHATBOT ================= */
+
+.chatbot-widget {
+    position: fixed;
+    bottom: 24px;
+    right: 25px;
+    z-index: 200;
+}
+
+.chat-toggle-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 21px;
+    background: var(--gradient);
+    border-radius: 50px;
+    font-weight: 700;
+    box-shadow: 0 8px 30px rgba(120,75,220,0.4);
+}
+
+.chat-toggle-btn i {
+    font-size: 19px;
+}
+
+.chat-window {
+    width: 350px;
+    height: 460px;
+    background: #171936;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    background: linear-gradient(120deg, #6543bd, #9259d7);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.chat-avatar {
+    width: 38px;
+    height: 38px;
+    background: rgba(255,255,255,0.2);
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+.chat-header h3 {
+    font-size: 14px;
+}
+
+.chat-status {
+    font-size: 11px;
+    opacity: 0.8;
+}
+
+.chat-header button {
+    margin-left: auto;
+    background: transparent;
+    font-size: 17px;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 13px;
+}
+
+.bot-message,
+.user-message {
+    padding: 11px 13px;
+    border-radius: 13px;
+    max-width: 85%;
+}
+
+.bot-message {
+    background: var(--surface-light);
+    align-self: flex-start;
+}
+
+.user-message {
+    background: #7049c1;
+    align-self: flex-end;
+}
+
+.chat-input-area {
+    display: flex;
+    gap: 7px;
+    padding: 12px;
+    border-top: 1px solid var(--border);
+}
+
+.chat-input-area input {
+    flex: 1;
+    min-width: 0;
+    background: #10132e;
+    border: 1px solid var(--border);
+    color: white;
+    padding: 11px;
+    border-radius: 9px;
+    outline: none;
+}
+
+.chat-input-area button {
+    width: 39px;
+    background: var(--primary);
+    border-radius: 9px;
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+    margin-top: 65px;
+    padding: 60px 8% 20px;
+    background: #07091c;
+    border-top: 1px solid var(--border);
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+.footer-brand p {
+    color: var(--muted);
+    max-width: 300px;
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.footer-column h3 {
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.footer-column a {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.footer-column a:hover {
+    color: var(--primary-light);
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* ================= NOTIFICATION ================= */
+
+.notification {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 500;
+    padding: 13px 23px;
+    background: #272a50;
+    border: 1px solid var(--primary);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    font-size: 13px;
+}
+
+/* ================= RESPONSIVE DESIGN ================= */
+
+@media (max-width: 1050px) {
+
+    .navbar {
+        padding: 15px 4%;
+    }
+
+    .hero {
+        padding: 75px 5%;
+        gap: 25px;
+    }
+
+    .categories-section,
+    .discovery-section,
+    .restaurants-section,
+    .map-section,
+    .recipes-section,
+    .testimonials-section {
+        padding: 60px 5%;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid,
+    .restaurant-grid,
+    .recipe-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+@media (max-width: 760px) {
+
+    .nav-links,
+    .login-btn {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 65px 6%;
+    }
+
+    .hero-visual {
+        min-height: 290px;
+    }
+
+    .hero-image-placeholder {
+        height: 270px;
+        max-width: 290px;
+    }
+
+    .hero-food-icon {
+        font-size: 95px;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .preference-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .booking-section {
+        padding: 35px 25px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .booking-visual {
+        align-self: center;
+        font-size: 90px;
+    }
+
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-main {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 520px) {
+
+    .navbar {
+        min-height: 68px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .hero {
+        padding: 50px 5%;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .search-container {
+        flex-wrap: wrap;
+    }
+
+    .search-container input {
+        flex-basis: calc(100% - 45px);
+    }
+
+    .search-container button {
+        width: 100%;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid,
+    .restaurant-grid,
+    .recipe-grid,
+    .preference-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .restaurant-filters {
+        width: 100%;
+    }
+
+    .restaurant-filters select {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .booking-section {
+        margin: 20px 5%;
+    }
+
+    .modal {
+        padding: 10px;
+    }
+
+    .modal-content {
+        padding: 25px 18px;
+    }
+
+    .chatbot-widget {
+        right: 12px;
+        bottom: 12px;
+    }
+
+    .chat-window {
+        width: min(350px, calc(100vw - 24px));
+        height: 430px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+
+}
+
+/* ===== FOOD CART QUANTITY CONTROLS ===== */
+
+.cart-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.cart-item button[onclick^="changeCartQuantity"] {
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border: 1px solid rgba(180, 130, 255, 0.4);
+    border-radius: 10px;
+    background: #292348;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.cart-item button[onclick^="changeCartQuantity"]:hover {
+    background: #8055ed;
+}
+
+.cart-item span {
+    min-width: 24px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.cart-item button[onclick^="removeCartItem"] {
+    padding: 9px 14px;
+    border: 1px solid rgba(255, 110, 130, 0.35);
+    border-radius: 9px;
+    background: rgba(255, 90, 110, 0.12);
+    color: #ff9aa9;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.cart-item button[onclick^="removeCartItem"]:hover {
+    background: rgba(255, 90, 110, 0.25);
+}
+
+.cart-item strong {
+    margin-left: auto;
+    color: #ffffff;
+    font-size: 18px;
+}
+/* =========================================
+   FOODGENIE - RECIPE INGREDIENT BUTTONS
+========================================= */
+
+#restaurantDetails p button:not(.primary-btn) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    padding: 7px 17px;
+    border: 1px solid rgba(180, 130, 255, 0.4);
+    border-radius: 9px;
+    background: linear-gradient(135deg, #8055ed, #b16be8);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+#restaurantDetails p button:not(.primary-btn):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(155, 108, 255, 0.3);
+}
+
+/* =========================================
+   GROCERY CART
+========================================= */
+
+.grocery-cart-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.grocery-item-info {
+    flex: 1;
+    min-width: 130px;
+}
+
+.grocery-item-info h4 {
+    margin: 0 0 6px;
+    color: #ffffff;
+    font-size: 17px;
+}
+
+.grocery-item-info p {
+    margin: 0;
+    color: #bcb9d1;
+    font-size: 14px;
+}
+
+.grocery-quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.grocery-quantity-controls button {
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: 1px solid rgba(180, 130, 255, 0.4);
+    border-radius: 9px;
+    background: #292348;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.grocery-quantity-controls button:hover {
+    background: #8055ed;
+}
+
+.grocery-quantity-controls span {
+    min-width: 20px;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 700;
+}
+
+.grocery-cart-item strong {
+    color: #ffffff;
+    font-size: 17px;
+}
+
+.grocery-remove-btn {
+    padding: 9px 15px;
+    border: 1px solid rgba(255, 110, 130, 0.35);
+    border-radius: 9px;
+    background: rgba(255, 90, 110, 0.12);
+    color: #ff9aa9;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.grocery-remove-btn:hover {
+    background: rgba(255, 90, 110, 0.25);
+}
+
+/* Grocery cart total */
+
+#groceryTotal {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+/* Grocery checkout button */
+
+#groceryCartModal button[onclick="checkoutGroceries()"] {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #8055ed, #b16be8);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#groceryCartModal button[onclick="checkoutGroceries()"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 18px rgba(155, 108, 255, 0.3);
+}
+
+
+/* ===== FOODGENIE CHATBOT CARD LAYOUT FIX ===== */
+
+.chat-window {
+    min-width: 0;
+}
+
+.chat-messages {
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+    min-width: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    align-items: stretch;
+}
+
+.chat-restaurant-results {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 auto;
+    align-self: stretch;
+    width: 100%;
+    min-width: 0;
+    gap: 14px;
+    overflow: visible;
+}
+
+.chat-restaurant-card {
+    display: block;
+    flex: 0 0 auto;
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    background: #20234a;
+}
+
+.chat-restaurant-card img {
+    display: block;
+    width: 100%;
+    height: 155px;
+    object-fit: cover;
+}
+
+.chat-restaurant-info {
+    padding: 13px;
+}
+
+.chat-restaurant-info h4 {
+    margin: 0 0 8px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.chat-restaurant-info p {
+    margin: 6px 0;
+    color: #d5d6e5;
+    font-size: 13px;
+}
+
+.chat-restaurant-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    padding: 0 13px 13px;
+}
+
+.chat-restaurant-actions button {
+    flex: 1 1 110px;
+    padding: 10px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #8055ed, #bd75ed);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.chat-restaurant-actions button:hover {
+    filter: brightness(1.15);
+}
+
+@media (max-width: 520px) {
+    .chat-window {
+        width: min(350px, calc(100vw - 24px));
+    }
+
+    .chat-restaurant-card img {
+        height: 135px;
+    }
+}
+
+/* ===== RESTAURANT DETAIL MODAL ===== */
+
+#restaurantDetails {
+    color: #ffffff;
+}
+
+#restaurantDetails > img {
+    display: block;
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 20px;
+}
+
+#restaurantDetails h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 27px;
+    margin: 12px 0 18px;
+}
+
+#restaurantDetails p {
+    color: #d5d6e5;
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 10px 0;
+}
+
+#restaurantDetails h3 {
+    font-size: 19px;
+    margin: 20px 0 8px;
+}
+
+#restaurantDetails .restaurant-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+#restaurantDetails .restaurant-actions button {
+    flex: 1 1 150px;
+    padding: 13px 16px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #8055ed, #bd75ed);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+#restaurantDetails .restaurant-actions button:hover {
+    filter: brightness(1.15);
+}
+
+@media (max-width: 520px) {
+    #restaurantDetails h2 {
+        font-size: 23px;
+    }
+
+    #restaurantDetails > img {
+        height: 180px;
+    }
+}
+
+/* ================= MY BOOKINGS ================= */
+
+.booking-results {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.booking-results form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.booking-results input,
+#myBookingsForm input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
+    background: #20234a;
+    color: white;
+}
+
+.booking-history-card {
+    background: #20234a;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 22px;
+    margin-bottom: 18px;
+}
+
+.booking-history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.booking-history-header h3 {
+    color: white;
+    font-size: 20px;
+}
+
+.booking-history-card p {
+    color: #d5d6e5;
+    line-height: 1.8;
+}
+
+.booking-status {
+    background: rgba(46, 204, 113, 0.15);
+    color: #64e6a0;
+    padding: 7px 12px;
+    border-radius: 20px;
+    text-transform: capitalize;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+#myBookingsForm {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 500px;
+}
+
+@media (max-width: 600px) {
+    .booking-history-card {
+        padding: 16px;
+    }
+
+    .booking-history-header h3 {
+        font-size: 17px;
+    }
+}
